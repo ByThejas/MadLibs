@@ -1,0 +1,159 @@
+:root {
+  --card-bg: rgba(15, 15, 20, 0.72);
+  --text: #f5f5f5;
+  --muted: #cfcfcf;
+  --accent: #ffffff;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition: background 0.6s ease;
+  color: var(--text);
+}
+
+/* ---------- Default background ---------- */
+body.theme-default {
+  background: radial-gradient(circle at 20% 20%, #2b2b3d, #0d0d14 70%);
+}
+
+/* ---------- F1 theme ---------- */
+body.theme-f1 {
+  background:
+    repeating-linear-gradient(45deg, #1a1a1a 0 20px, #ffffff 20px 40px) fixed;
+  background-blend-mode: normal;
+}
+body.theme-f1::before {
+  content: "";
+}
+.theme-f1 .card { background: rgba(20, 10, 10, 0.82); border: 2px solid #e10600; }
+.theme-f1 h1, .theme-f1 h2 { color: #e10600; }
+.theme-f1 button { background: #e10600; }
+.theme-f1 button:hover { background: #ff2a1f; }
+
+/* ---------- Harry Potter theme ---------- */
+body.theme-hp {
+  background: linear-gradient(180deg, #0b1f13 0%, #142a1c 50%, #0b1f13 100%);
+}
+.theme-hp .card { background: rgba(10, 20, 12, 0.85); border: 2px solid #d3a625; }
+.theme-hp h1, .theme-hp h2 { color: #d3a625; }
+.theme-hp button { background: #7f0909; }
+.theme-hp button:hover { background: #a30d0d; }
+
+/* ---------- Marvel theme ---------- */
+body.theme-marvel {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.08) 2px, transparent 2px) 0 0/28px 28px,
+    linear-gradient(135deg, #1b1035 0%, #3a0d3d 50%, #7a0c0c 100%);
+}
+.theme-marvel .card { background: rgba(15, 10, 30, 0.82); border: 2px solid #ed1d24; }
+.theme-marvel h1, .theme-marvel h2 { color: #ed1d24; }
+.theme-marvel button { background: #2f4bc9; }
+.theme-marvel button:hover { background: #4360e0; }
+
+/* ---------- Layout ---------- */
+.screen {
+  display: none;
+  width: 100%;
+}
+.screen.active {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+}
+.card.wide { max-width: 640px; }
+
+h1 { margin-top: 0; font-size: 2rem; }
+h2 { margin-top: 0; }
+
+.subtitle, .tagline { color: var(--muted); margin-bottom: 20px; }
+
+label { display: block; margin-bottom: 8px; font-weight: 600; }
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+input[type="text"]:focus { outline: 2px solid var(--accent); }
+
+button {
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+button:hover { transform: translateY(-1px); }
+button.secondary {
+  background: rgba(255,255,255,0.12);
+}
+button.secondary:hover { background: rgba(255,255,255,0.2); }
+
+.button-row { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+
+.error { color: #ff6b6b; min-height: 1.2em; margin-top: 4px; }
+
+/* Theme selection grid */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+.theme-option {
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  color: white;
+}
+.theme-option:hover { transform: translateY(-3px); }
+.theme-option .icon { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+.theme-option.opt-f1 { background: linear-gradient(135deg, #b3000d, #1a1a1a); border-color: #e10600; }
+.theme-option.opt-hp { background: linear-gradient(135deg, #142a1c, #0b1f13); border-color: #d3a625; }
+.theme-option.opt-marvel { background: linear-gradient(135deg, #3a0d3d, #7a0c0c); border-color: #ed1d24; }
+
+.theme-banner { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.banner-icon { font-size: 2.5rem; }
+
+.form-field { margin-bottom: 14px; }
+
+.story-text {
+  white-space: pre-line;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.06);
+  padding: 20px;
+  border-radius: 10px;
+}

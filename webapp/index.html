@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Themed Madlibs</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-default">
+
+  <main id="app">
+
+    <!-- Welcome screen -->
+    <section id="screen-welcome" class="screen active">
+      <div class="card">
+        <h1>Themed Madlibs</h1>
+        <p class="subtitle">Fill in the blanks. Watch the story come alive.</p>
+        <label for="username-input">Enter your username to begin</label>
+        <input id="username-input" type="text" maxlength="20" placeholder="Your name" autocomplete="off" />
+        <button id="btn-welcome-continue">Continue</button>
+        <p id="welcome-error" class="error"></p>
+      </div>
+    </section>
+
+    <!-- Dashboard screen -->
+    <section id="screen-dashboard" class="screen">
+      <div class="card wide">
+        <h2 id="dashboard-greeting">Pick a theme</h2>
+        <div id="theme-grid" class="theme-grid"></div>
+      </div>
+    </section>
+
+    <!-- Game screen -->
+    <section id="screen-game" class="screen">
+      <div class="card wide">
+        <div class="theme-banner">
+          <span id="game-banner-icon" class="banner-icon"></span>
+          <div>
+            <h2 id="game-theme-title"></h2>
+            <p id="game-tagline" class="tagline"></p>
+          </div>
+        </div>
+        <form id="game-form"></form>
+        <div class="button-row">
+          <button type="button" id="btn-back-dashboard" class="secondary">Change Theme</button>
+          <button type="submit" form="game-form" id="btn-generate">Generate Story</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story screen -->
+    <section id="screen-story" class="screen">
+      <div class="card wide">
+        <div class="theme-banner">
+          <span id="story-banner-icon" class="banner-icon"></span>
+          <h2 id="story-title">Your Story</h2>
+        </div>
+        <p id="story-text" class="story-text"></p>
+        <div class="button-row">
+          <button id="btn-play-again">Play Again (Same Theme)</button>
+          <button id="btn-change-theme" class="secondary">Choose Different Theme</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
